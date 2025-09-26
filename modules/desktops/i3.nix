@@ -91,6 +91,7 @@ with lib;
       xorg.xbacklight
       brightnessctl
       playerctl
+      polkit_gnome
       
       # Terminal and utilities
       alacritty
@@ -168,6 +169,7 @@ with lib;
             { command = "feh --bg-scale ~/.wallpaper"; always = true; notification = false; }
             { command = "nm-applet"; always = true; notification = false; }
             { command = "blueman-applet"; always = true; notification = false; }
+            { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; always = true; notification = false; }
           ];
         };
       };
