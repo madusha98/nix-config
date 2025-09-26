@@ -107,6 +107,7 @@ with lib;
       # Screenshots
       scrot
       maim
+      imagemagick
       
       # System info
       neofetch
@@ -136,8 +137,9 @@ with lib;
             "Mod4+Return" = "exec alacritty";
             "Mod4+d" = "exec rofi -show drun";
             "Mod4+Shift+d" = "exec dmenu_run";
-            "Mod4+l" = "exec i3lock -c 000000";
+            "Mod4+l" = "exec --no-startup-id ~/.config/i3/scripts/blur-lock";
             "Mod4+Shift+x" = "exec i3lock -c 000000";
+            "Mod4+Shift+e" = "exec ~/.config/i3/scripts/powermenu.sh";
             
             # Screenshots
             "Print" = "exec scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png";
@@ -160,7 +162,7 @@ with lib;
 
           bars = [{
             position = "top";
-            statusCommand = "i3status";
+            statusCommand = "i3blocks";
             # Let Stylix handle bar colors
           }];
 
@@ -174,90 +176,55 @@ with lib;
         };
       };
 
-      # i3status configuration with Stylix-compatible theming
-      programs.i3status = {
-        enable = true;
-        general = {
-          colors = true;
-          interval = 5;
-          # Let Stylix handle colors through base16 theming
-        };
-        modules = {
-          "wireless _first_" = {
-            position = 1;
-            settings = {
-              format_up = "📶 %quality %essid %ip";
-              format_down = "📶 down";
-            };
-          };
-          "ethernet _first_" = {
-            position = 2;
-            settings = {
-              format_up = "🌐 %ip (%speed)";
-              format_down = "🌐 down";
-            };
-          };
-          "battery all" = {
-            position = 3;
-            settings = {
-              format = "%status %percentage %remaining";
-              status_chr = "⚡";
-              status_bat = "🔋";
-              status_unk = "❓";
-              status_full = "🔌";
-            };
-          };
-          "disk /" = {
-            position = 4;
-            settings = {
-              format = "💾 %avail";
-            };
-          };
-          "load" = {
-            position = 5;
-            settings = {
-              format = "💻 %1min";
-            };
-          };
-          "memory" = {
-            position = 6;
-            settings = {
-              format = "🧠 %used | %available";
-              threshold_degraded = "1G";
-              format_degraded = "MEMORY < %available";
-            };
-          };
-          "tztime local" = {
-            position = 7;
-            settings = {
-              format = "📅 %Y-%m-%d 🕐 %H:%M:%S";
-            };
-          };
-        };
-      };
+      # i3blocks configuration
+      home.file.".config/i3/i3blocks.conf".source = ./i3blocks.conf;
 
       # Create Pictures/Screenshots directory
       home.file."Pictures/Screenshots/.keep".text = "";
       
-      # Picom configuration
-      services.picom = {
-        enable = true;
-        fade = true;
-        fadeSteps = [ 0.03 0.03 ];
-        shadow = true;
-        shadowOffsets = [ (-7) (-7) ];
-        shadowOpacity = 0.7;
-        activeOpacity = 1.0;
-        inactiveOpacity = 0.95;
-        backend = "glx";
-        vSync = true;
-        settings = {
-          shadow-radius = 7;
-          corner-radius = 8;
-        };
+      
+      # Copy blur-lock script
+      home.file.".config/i3/scripts/blur-lock" = {
+        source = ./scripts/blur-lock;
+        executable = true;
       };
+      
+      # Copy power menu script
+      home.file.".config/i3/scripts/powermenu.sh" = {
+        source = ./scripts/powermenu.sh;
+        executable = true;
+      };
+      
+      # Picom configuration
+      # services.picom = {
+      #   enable = true;
+      #   fade = true;
+      #   fadeSteps = [ 0.03 0.03 ];
+      #   shadow = true;
+      #   shadowOffsets = [ (-7) (-7) ];
+      #   shadowOpacity = 0.7;
+      #   activeOpacity = 1.0;
+      #   inactiveOpacity = 0.95;
+      #   backend = "glx";
+      #   vSync = true;
+      #   settings = {
+      #     shadow-radius = 7;
+      #     corner-radius = 8;
+      #   };
+      # };
 
       # Dunst is already configured in modules/services/dunst.nix
+      
+      # Configure rofi with Stylix theming
+      programs.rofi = {
+        enable = true;
+        extraConfig = {
+          display-drun = "Applications";
+          display-window = "Windows";
+          show-icons = true;
+          icon-theme = "Papirus";
+        };
+      };
     };
 
     # Enable fonts
