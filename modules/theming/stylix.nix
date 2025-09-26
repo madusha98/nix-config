@@ -68,6 +68,8 @@ lib.mkMerge [
         emacs.enable = false;
         feh.enable = true;
         tmux.enable = false;
+        i3.enable = true;
+        dunst.enable = true;
       };
     };
   }

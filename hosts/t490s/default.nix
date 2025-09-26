@@ -10,7 +10,8 @@
 
   # gnome.enable = false;
   x11wm.enable = true;
-  dwm.enable = true;
+  dwm.enable = false;
+  i3.enable = true;
   fprint.enable = false;
   plymouth.enable = true;
   ratbagd.enable = true;
