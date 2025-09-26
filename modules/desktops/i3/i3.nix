@@ -139,7 +139,7 @@ with lib;
             "Mod4+Shift+d" = "exec dmenu_run";
             "Mod4+l" = "exec --no-startup-id ~/.config/i3/scripts/blur-lock";
             "Mod4+Shift+x" = "exec i3lock -c 000000";
-            "Mod4+Shift+e" = "exec ~/.config/i3/scripts/powermenu.sh";
+            "Mod4+Shift+e" = "exec ~/.config/i3/scripts/powermenu";
             
             # Screenshots
             "Print" = "exec scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png";
@@ -162,7 +162,7 @@ with lib;
 
           bars = [{
             position = "top";
-            statusCommand = "i3blocks";
+            statusCommand = "i3blocks -c ~/.config/i3/i3blocks.conf";
             # Let Stylix handle bar colors
           }];
 
@@ -183,16 +183,10 @@ with lib;
       home.file."Pictures/Screenshots/.keep".text = "";
       
       
-      # Copy blur-lock script
-      home.file.".config/i3/scripts/blur-lock" = {
-        source = ./scripts/blur-lock;
-        executable = true;
-      };
-      
-      # Copy power menu script
-      home.file.".config/i3/scripts/powermenu.sh" = {
-        source = ./scripts/powermenu.sh;
-        executable = true;
+      # Copy all scripts to .config/i3/scripts
+      home.file.".config/i3/scripts" = {
+        source = ./scripts;
+        recursive = true;
       };
       
       # Picom configuration

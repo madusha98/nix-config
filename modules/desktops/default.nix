@@ -1,6 +1,6 @@
 [
   ./gnome.nix
   ./dwm.nix
-  ./i3.nix
+  ./i3/i3.nix
   ./options.nix
 ]
