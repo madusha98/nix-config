@@ -97,6 +97,7 @@ with lib;
       playerctl
       polkit_gnome
       power-profiles-daemon
+      xdotool
       
       # Terminal and utilities
       alacritty
@@ -141,6 +142,11 @@ with lib;
             outer = 2;
             smartGaps = true;
             smartBorders = "on";
+          };
+
+          window = {
+            border = 1;
+            titlebar = false;
           };
 
           keybindings = lib.mkOptionDefault {

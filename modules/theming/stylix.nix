@@ -37,8 +37,8 @@ lib.mkMerge [
         name = "EB Garamond";
       };
       sansSerif = {
-        package = pkgs.overpass;
-        name = "Overpass";
+        package = pkgs.noto-fonts;
+        name = "Noto Sans";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
