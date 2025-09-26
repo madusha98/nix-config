@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  pkgs,
   ...
 }:
 {
@@ -10,8 +11,8 @@
       plymouth = {
         enable = true;
 
-        themePackages = [ inputs.mikuboot.packages."x86_64-linux".default ];
-        theme = "mikuboot";
+        themePackages = [ pkgs.adi1090x-plymouth-themes ];
+        theme = "darth_vader";
       };
 
       # Enable "Silent Boot"

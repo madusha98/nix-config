@@ -6,4 +6,5 @@
   # ./podman.nix
   ./twingate.nix
   ./picom.nix
+  ./docker.nix
 ]

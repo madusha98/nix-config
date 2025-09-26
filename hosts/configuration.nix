@@ -143,7 +143,6 @@ in
 
         dbgate # database management
         pgadmin4-desktopmode # postgresql management
-        mongodb-compass # mongodb management
 
         awscli2 # aws cli
         kubectl # kubernets cli
@@ -157,8 +156,6 @@ in
         ansible
         terraform
         fluxcd
-        signal-desktop
-        supersonic # music player
         cmake
         clang
         libtool

@@ -7,7 +7,6 @@
   stylix,
   emacs-overlay,
   nixvim,
-  mikuboot,
   vars,
   ...
 }:
@@ -80,7 +79,6 @@ in
       ./configuration.nix
       stylix.nixosModules.stylix
       nixvim.nixosModules.nixvim
-      mikuboot.nixosModules.default
 
       nixos-hardware.nixosModules.lenovo-thinkpad-t490s
       home-manager.nixosModules.home-manager

@@ -38,10 +38,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mikuboot = {
-      url = "gitlab:evysgarden/mikuboot";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -56,7 +52,6 @@
       firefox-addons,
       emacs-overlay,
       nix-darwin,
-      mikuboot,
       home-manager-stable,
       ...
     }:
@@ -84,7 +79,6 @@
             emacs-overlay
             nixvim
             firefox-addons
-            mikuboot
             vars
             ;
         }
