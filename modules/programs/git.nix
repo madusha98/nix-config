@@ -13,7 +13,7 @@
           push = {
             autoSetupRemote = true;
           };
-          commit.gpgsign = true;
+          commit.gpgsign = false;
         };
 
         aliases = {

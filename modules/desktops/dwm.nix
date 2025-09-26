@@ -23,7 +23,7 @@ with lib;
       libinput = {
         enable = true;
         touchpad = {
-          naturalScrolling = false;
+          naturalScrolling = true;
           accelSpeed = "0.5";
         };
       };

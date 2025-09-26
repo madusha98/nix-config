@@ -66,7 +66,7 @@
         email = "madushalakruwan2nd@gmail.com";
         location = "$HOME/nix-config";
         terminal = "alacritty";
-        editor = "nvim";
+        editor = "hx";
         stateVersion = "25.05";
       };
     in
