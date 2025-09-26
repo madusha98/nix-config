@@ -168,6 +168,9 @@ with lib;
             # Brightness controls
             "XF86MonBrightnessUp" = "exec brightnessctl set +5% && ~/.config/i3/scripts/brightness-notify";
             "XF86MonBrightnessDown" = "exec brightnessctl set 5%- && ~/.config/i3/scripts/brightness-notify";
+            
+            # Keyboard backlight controls
+            "Mod1+space" = "exec ~/.config/i3/scripts/kbd-brightness-notify";
           };
 
           bars = [{
@@ -202,6 +205,7 @@ with lib;
       home.file.".config/i3/scripts/cpu_usage" = { source = ./scripts/cpu_usage; executable = true; };
       home.file.".config/i3/scripts/disk" = { source = ./scripts/disk; executable = true; };
       home.file.".config/i3/scripts/empty_workspace" = { source = ./scripts/empty_workspace; executable = true; };
+      home.file.".config/i3/scripts/kbd-brightness-notify" = { source = ./scripts/kbd-brightness-notify; executable = true; };
       home.file.".config/i3/scripts/keyboard-layout" = { source = ./scripts/keyboard-layout; executable = true; };
       home.file.".config/i3/scripts/keyhint" = { source = ./scripts/keyhint; executable = true; };
       home.file.".config/i3/scripts/keyhint-2" = { source = ./scripts/keyhint-2; executable = true; };

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Cycle keyboard brightness through levels 0, 1, 2
+current_brightness=$(brightnessctl -d '*::kbd_backlight' get)
+
+case $current_brightness in
+    0)
+        new_brightness=1
+        ;;
+    1)
+        new_brightness=2
+        ;;
+    *)
+        new_brightness=0
+        ;;
+esac
+
+brightnessctl -d '*::kbd_backlight' set $new_brightness
+
+# Show notification
+kbd_brightness=$(brightnessctl -d '*::kbd_backlight' get)
+max_kbd_brightness=$(brightnessctl -d '*::kbd_backlight' max)
+kbd_brightness_percent=$(( kbd_brightness * 100 / max_kbd_brightness ))
+
+if [ $kbd_brightness -eq 0 ]; then
+    dunstify -a "Keyboard Backlight" -t 1500 -r 1004 -h int:value:0 "Keyboard Backlight: Off"
+else
+    dunstify -a "Keyboard Backlight" -t 1500 -r 1004 -h int:value:$kbd_brightness_percent "Keyboard Backlight: Level $kbd_brightness"
+fi
