@@ -116,6 +116,11 @@ with lib;
       # System info
       neofetch
       htop
+      perl
+      python3
+      sysstat  # provides mpstat for cpu_usage script
+      lm_sensors  # provides sensors command for temperature script
+      acpi  # provides acpi command for battery script
       
       # Notifications
       dunst
@@ -189,8 +194,7 @@ with lib;
       
       # Copy all scripts to .config/i3/scripts with executable permissions
       home.file.".config/i3/scripts/bandwidth2" = { source = ./scripts/bandwidth2; executable = true; };
-      home.file.".config/i3/scripts/battery1" = { source = ./scripts/battery1; executable = true; };
-      home.file.".config/i3/scripts/battery2" = { source = ./scripts/battery2; executable = true; };
+      home.file.".config/i3/scripts/battery" = { source = ./scripts/battery; executable = true; };
       home.file.".config/i3/scripts/battery-pinebook-pro" = { source = ./scripts/battery-pinebook-pro; executable = true; };
       home.file.".config/i3/scripts/blur-lock" = { source = ./scripts/blur-lock; executable = true; };
       home.file.".config/i3/scripts/cpu_usage" = { source = ./scripts/cpu_usage; executable = true; };
