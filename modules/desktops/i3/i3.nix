@@ -89,6 +89,7 @@ with lib;
       
       # System tools
       pavucontrol
+      pulseaudio
       networkmanagerapplet
       blueman
       xorg.xbacklight
@@ -155,9 +156,9 @@ with lib;
             "Shift+Print" = "exec scrot -s ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png";
             
             # Audio controls
-            "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
-            "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
-            "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+            "XF86AudioRaiseVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/i3/scripts/volume-notify";
+            "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && ~/.config/i3/scripts/volume-notify";
+            "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/.config/i3/scripts/volume-notify";
             
             # Media controls
             "XF86AudioPlay" = "exec playerctl play-pause";
@@ -165,8 +166,8 @@ with lib;
             "XF86AudioPrev" = "exec playerctl previous";
             
             # Brightness controls
-            "XF86MonBrightnessUp" = "exec brightnessctl set +5%";
-            "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
+            "XF86MonBrightnessUp" = "exec brightnessctl set +5% && ~/.config/i3/scripts/brightness-notify";
+            "XF86MonBrightnessDown" = "exec brightnessctl set 5%- && ~/.config/i3/scripts/brightness-notify";
           };
 
           bars = [{
@@ -197,6 +198,7 @@ with lib;
       home.file.".config/i3/scripts/battery" = { source = ./scripts/battery; executable = true; };
       home.file.".config/i3/scripts/battery-pinebook-pro" = { source = ./scripts/battery-pinebook-pro; executable = true; };
       home.file.".config/i3/scripts/blur-lock" = { source = ./scripts/blur-lock; executable = true; };
+      home.file.".config/i3/scripts/brightness-notify" = { source = ./scripts/brightness-notify; executable = true; };
       home.file.".config/i3/scripts/cpu_usage" = { source = ./scripts/cpu_usage; executable = true; };
       home.file.".config/i3/scripts/disk" = { source = ./scripts/disk; executable = true; };
       home.file.".config/i3/scripts/empty_workspace" = { source = ./scripts/empty_workspace; executable = true; };
@@ -213,6 +215,7 @@ with lib;
       home.file.".config/i3/scripts/ppd-status" = { source = ./scripts/ppd-status; executable = true; };
       home.file.".config/i3/scripts/temperature" = { source = ./scripts/temperature; executable = true; };
       home.file.".config/i3/scripts/volume" = { source = ./scripts/volume; executable = true; };
+      home.file.".config/i3/scripts/volume-notify" = { source = ./scripts/volume-notify; executable = true; };
       home.file.".config/i3/scripts/volume_brightness.sh" = { source = ./scripts/volume_brightness.sh; executable = true; };
       home.file.".config/i3/scripts/vpn" = { source = ./scripts/vpn; executable = true; };
       

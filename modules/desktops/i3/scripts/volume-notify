@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Get current volume and mute status
+volume_info=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+volume=$(echo "$volume_info" | awk '{print int($2*100)}')
+is_muted=$(echo "$volume_info" | grep -q "MUTED" && echo "true" || echo "false")
+
+if [ "$is_muted" = "true" ]; then
+    dunstify -a "Volume" -t 1500 -r 1001 -h int:value:0 "Volume Muted"
+else
+    dunstify -a "Volume" -t 1500 -r 1001 -h int:value:$volume "Volume: ${volume}%"
+fi
