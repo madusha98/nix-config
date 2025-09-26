@@ -65,6 +65,9 @@ with lib;
       };
     };
 
+    # Power profiles daemon
+    services.power-profiles-daemon.enable = true;
+
     # System packages for i3 (EndeavourOS-style)
     environment.systemPackages = with pkgs; [
       # Window manager essentials
@@ -92,6 +95,7 @@ with lib;
       brightnessctl
       playerctl
       polkit_gnome
+      power-profiles-daemon
       
       # Terminal and utilities
       alacritty
@@ -183,11 +187,30 @@ with lib;
       home.file."Pictures/Screenshots/.keep".text = "";
       
       
-      # Copy all scripts to .config/i3/scripts
-      home.file.".config/i3/scripts" = {
-        source = ./scripts;
-        recursive = true;
-      };
+      # Copy all scripts to .config/i3/scripts with executable permissions
+      home.file.".config/i3/scripts/bandwidth2" = { source = ./scripts/bandwidth2; executable = true; };
+      home.file.".config/i3/scripts/battery1" = { source = ./scripts/battery1; executable = true; };
+      home.file.".config/i3/scripts/battery2" = { source = ./scripts/battery2; executable = true; };
+      home.file.".config/i3/scripts/battery-pinebook-pro" = { source = ./scripts/battery-pinebook-pro; executable = true; };
+      home.file.".config/i3/scripts/blur-lock" = { source = ./scripts/blur-lock; executable = true; };
+      home.file.".config/i3/scripts/cpu_usage" = { source = ./scripts/cpu_usage; executable = true; };
+      home.file.".config/i3/scripts/disk" = { source = ./scripts/disk; executable = true; };
+      home.file.".config/i3/scripts/empty_workspace" = { source = ./scripts/empty_workspace; executable = true; };
+      home.file.".config/i3/scripts/keyboard-layout" = { source = ./scripts/keyboard-layout; executable = true; };
+      home.file.".config/i3/scripts/keyhint" = { source = ./scripts/keyhint; executable = true; };
+      home.file.".config/i3/scripts/keyhint-2" = { source = ./scripts/keyhint-2; executable = true; };
+      home.file.".config/i3/scripts/memory" = { source = ./scripts/memory; executable = true; };
+      home.file.".config/i3/scripts/openweather" = { source = ./scripts/openweather; executable = true; };
+      home.file.".config/i3/scripts/openweather-city" = { source = ./scripts/openweather-city; executable = true; };
+      home.file.".config/i3/scripts/openweather.conf" = { source = ./scripts/openweather.conf; };
+      home.file.".config/i3/scripts/powermenu" = { source = ./scripts/powermenu; executable = true; };
+      home.file.".config/i3/scripts/power-profiles" = { source = ./scripts/power-profiles; executable = true; };
+      home.file.".config/i3/scripts/power.sh" = { source = ./scripts/power.sh; executable = true; };
+      home.file.".config/i3/scripts/ppd-status" = { source = ./scripts/ppd-status; executable = true; };
+      home.file.".config/i3/scripts/temperature" = { source = ./scripts/temperature; executable = true; };
+      home.file.".config/i3/scripts/volume" = { source = ./scripts/volume; executable = true; };
+      home.file.".config/i3/scripts/volume_brightness.sh" = { source = ./scripts/volume_brightness.sh; executable = true; };
+      home.file.".config/i3/scripts/vpn" = { source = ./scripts/vpn; executable = true; };
       
       # Picom configuration
       # services.picom = {
