@@ -170,7 +170,7 @@ with lib;
             "XF86MonBrightnessDown" = "exec brightnessctl set 5%- && ~/.config/i3/scripts/brightness-notify";
             
             # Keyboard backlight controls
-            "Mod1+space" = "exec ~/.config/i3/scripts/kbd-brightness-notify";
+            "Control+space" = "exec ~/.config/i3/scripts/kbd-brightness-notify";
           };
 
           bars = [{
