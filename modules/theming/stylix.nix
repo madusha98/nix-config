@@ -60,7 +60,7 @@ lib.mkMerge [
     };
 
     stylix.opacity = {
-      terminal = 0.8;
+      terminal = 0.95;
     };
 
     home-manager.users.${vars.user} = {

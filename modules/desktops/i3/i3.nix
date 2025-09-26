@@ -111,6 +111,7 @@ with lib;
       papirus-icon-theme
       
       # Screenshots
+      flameshot
       scrot
       maim
       imagemagick
@@ -158,8 +159,8 @@ with lib;
             "Mod4+Shift+e" = "exec ~/.config/i3/scripts/powermenu";
             
             # Screenshots
-            "Print" = "exec scrot ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png";
-            "Shift+Print" = "exec scrot -s ~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png";
+            "Print" = "exec flameshot full -p ~/Pictures/Screenshots";
+            "Shift+Print" = "exec flameshot gui";
             
             # Audio controls
             "XF86AudioRaiseVolume" = "exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && ~/.config/i3/scripts/volume-notify";
