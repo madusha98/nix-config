@@ -1,4 +1,5 @@
 [
   ./git.nix
-  ./zsh.nix
+  # ./zsh.nix
+  ./fish.nix
 ]
