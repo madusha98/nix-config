@@ -167,6 +167,9 @@ in
         # vpn stuff
         openvpn
 
+        vscode
+        claude-code
+
         nixfmt-rfc-style
       ]
       ++ (with stable; [
