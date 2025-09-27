@@ -9,4 +9,5 @@
   ./chromium.nix
   # ./bitwaden.nix
   ./lsp-servers.nix
+  ./android.nix
 ]
