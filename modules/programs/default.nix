@@ -12,4 +12,5 @@
   # ./bitwaden.nix
   ./lsp-servers.nix
   ./android.nix
+  ./nodejs.nix
 ]

@@ -9,9 +9,7 @@
   home-manager.users.${vars.user} = {
     programs.chromium = {
       enable = true;
-      commandLineArgs = [
-        "--enable-features=ExtensionManifestV2Available"
-      ];
+      package = pkgs.google-chrome;
     };
   };
 
