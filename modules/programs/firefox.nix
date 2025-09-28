@@ -209,6 +209,7 @@ in
               ublock-origin
               sidebery
               surfingkeys
+              multi-account-containers
             ];
         };
 
