@@ -2,6 +2,8 @@
   ./alacritty.nix
   ./git.nix
   # ./tmux.nix
+  ./zellij.nix
+  ./lazygit.nix
   # ./scripts.nix
   ./firefox.nix
   # ./thunderbird.nix
